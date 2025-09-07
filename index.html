@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manesh Kumar | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav">
+      <h1 class="logo">Manesh Kumar</h1>
+      <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero reveal">
+    <div class="container">
+      <h2>Hello 👋, I'm Manesh Kumar</h2>
+      <p>I am a student currently learning Cybersecurity.  
+         This is my personal portfolio website where I share my projects and learning journey.</p>
+      <a href="#projects" class="btn">View My Projects</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section reveal">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I am passionate about technology, cybersecurity, and continuous learning.  
+         Currently, I am exploring Ethical Hacking, Nmap, Metasploit, and network analysis tools.  
+         My goal is to become a successful Cybersecurity Professional in the future.</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section reveal">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Network Scanning</h3>
+          <p>Used Nmap to practice finding open ports and vulnerabilities in local networks.</p>
+        </div>
+        <div class="card">
+          <h3>Wireshark Analysis</h3>
+          <p>Packet capture and traffic analysis for better understanding of network behavior.</p>
+        </div>
+        <div class="card">
+          <h3>Metasploitable VM</h3>
+          <p>Hands-on experiments with exploiting vulnerabilities in a virtual machine environment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact reveal">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>If you want to connect with me, feel free to reach out at:</p>
+      <p><a href="mailto:maneshkumarconnect@gmail.com" class="email">maneshkumarconnect@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Manesh Kumar | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    // Auto year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar");
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
+
+    // Scroll Reveal Animation
+    function reveal() {
+      const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href"))
+          .scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Initial reveal
+    reveal();
+  </script>
+</body>
+</html>
