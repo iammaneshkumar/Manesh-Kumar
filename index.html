@@ -1,86 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manesh Kumar | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container nav">
-      <h1 class="logo">Manesh<span>Kumar</span></h1>
-      <nav id="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="actions">
-        <div class="theme-switch">
-          <input type="checkbox" id="theme-toggle">
-          <label for="theme-toggle" class="switch"></label>
-        </div>
-        <div class="menu-toggle" id="menu-toggle">☰</div>
-      </div>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
+<!-- Header -->
+<header>
+  <div class="container nav">
+    <h1 class="logo">Manesh<span>Kumar</span></h1>
+
+    <nav id="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <div class="theme-switch">
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle" class="switch"></label>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+
+    <div class="logo-wrapper">
+      <span class="logo-ring"></span>
+      <img src="logo.png" alt="Manesh Kumar Logo" />
+    </div>
+
     <div class="hero-content">
       <h2>Hi, I'm <span>Manesh Kumar</span></h2>
       <p>Aspiring Cybersecurity Specialist & Learner</p>
-      <a href="#projects" class="btn">🚀 View My Projects</a>
+      <a href="#projects" class="btn">View My Projects</a>
     </div>
-  </section>
 
-  <!-- About -->
-  <section class="section about" id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        I am passionate about cybersecurity, ethical hacking, and cloud security. 
-        I enjoy learning how systems work, finding vulnerabilities, and building secure solutions.
-      </p>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Projects -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>🔍 Nmap Scanner</h3>
-          <p>Custom scripts for automated vulnerability scanning.</p>
-        </div>
-        <div class="card">
-          <h3>🛡️ Web Pentesting</h3>
-          <p>Hands-on testing with Metasploitable & Burp Suite.</p>
-        </div>
-        <div class="card">
-          <h3>🕸️ DVWA (Low Security Mode)</h3>
-          <p>Learned web application vulnerabilities like SQLi, XSS, and Brute Force in a controlled environment.</p>
-        </div>
+<!-- About -->
+<section class="section" id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>
+      I am passionate about cybersecurity, ethical hacking, and cloud security.
+      I enjoy understanding how systems work, identifying vulnerabilities,
+      and building secure solutions.
+    </p>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section projects" id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Nmap Scanner</h3>
+        <p>Custom scripts for automated network scanning and enumeration.</p>
+      </div>
+
+      <div class="card">
+        <h3>Web Penetration Testing</h3>
+        <p>Hands-on testing using Metasploitable, Burp Suite, and manual techniques.</p>
+      </div>
+
+      <div class="card">
+        <h3>DVWA Practice</h3>
+        <p>Explored SQL Injection, XSS, brute force, and authentication flaws.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:maneshkumarconnect@gmail.com" class="email">maneshkumarconnect@gmail.com</a></p>
-    </div>
-  </section>
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <p>
+      Email:
+      <a href="mailto:maneshkumarconnect@gmail.com" class="email">
+        maneshkumarconnect@gmail.com
+      </a>
+    </p>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; <span id="year"></span> Manesh Kumar. All rights reserved.</p>
-  </footer>
+<!-- Footer -->
+<footer>
+  <p>© <span id="year"></span> Manesh Kumar. All rights reserved.</p>
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
