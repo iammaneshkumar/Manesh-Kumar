@@ -5,28 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manesh Kumar | Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
 
 <!-- Header -->
 <header>
   <div class="container nav">
-    <h1 class="logo">Manesh<span>Kumar</span></h1>
-
+    <h1 class="logo">Manesh<span> Kumar</span></h1>
     <nav id="navbar">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-
-    <div class="actions">
-      <div class="theme-switch">
-        <input type="checkbox" id="theme-toggle" />
-        <label for="theme-toggle" class="switch"></label>
-      </div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
-    </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
   </div>
 </header>
 
@@ -41,7 +34,7 @@
 
     <div class="hero-content">
       <h2>Hi, I'm <span>Manesh Kumar</span></h2>
-      <p>Aspiring Cybersecurity Specialist & Learner</p>
+      <p>Cybersecurity & Cloud Learner</p>
       <a href="#projects" class="btn">View My Projects</a>
     </div>
 
@@ -52,10 +45,10 @@
 <section class="section" id="about">
   <div class="container">
     <h2>About Me</h2>
-    <p>
-      I am passionate about cybersecurity, ethical hacking, and cloud security.
-      I enjoy understanding how systems work, identifying vulnerabilities,
-      and building secure solutions.
+    <p>I am a Final Year BCA student with a strong interest in Cloud Computing and Cybersecurity. Currently, I am focused on building a solid foundation by learning core concepts and practicing them hands-on.<br><br>
+In cybersecurity, I have worked with tools like Kali Linux, Nmap, Metasploit (using Metasploitable labs), and Wireshark to understand basic network scanning, vulnerability assessment, and traffic analysis.<br><br>
+Alongside this, I am learning Cloud Computing fundamentals on AWS, where I have practiced working with services such as EC2, IAM, and S3 to understand cloud infrastructure, access management, and storage concepts.<br><br>
+I believe in learning through consistency and practical exposure rather than shortcuts. My goal is to continue strengthening my fundamentals and gradually move toward cloud and security-focused roles in the future.
     </p>
   </div>
 </section>
@@ -80,7 +73,20 @@
         <h3>DVWA Practice</h3>
         <p>Explored SQL Injection, XSS, brute force, and authentication flaws.</p>
       </div>
+
+      <div class="card">
+        <h3>Cloud Hosted Website</h3>
+        <p>
+          Deployed a static website on AWS S3 demonstrating cloud hosting,
+          scalable deployment, and cloud-based security.
+        </p>
+      </div>
     </div>
+
+    <div class="view-live-container">
+      <a href="https://d31utt7dm1a9oj.cloudfront.net/" target="_blank" class="btn">View Cloud Hosted Website</a>
+    </div>
+
   </div>
 </section>
 
@@ -88,12 +94,16 @@
 <section class="section contact" id="contact">
   <div class="container">
     <h2>Contact Me</h2>
-    <p>
-      Email:
+    <p>Email: 
       <a href="mailto:maneshkumarconnect@gmail.com" class="email">
         maneshkumarconnect@gmail.com
       </a>
     </p>
+    <p>Connect with me on:</p>
+    <div class="social-links">
+      <a href="https://github.com/iammaneshkumar" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/iammaneshkumar?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
   </div>
 </section>
 
