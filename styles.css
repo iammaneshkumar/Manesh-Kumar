@@ -264,3 +264,9 @@ footer {
   .menu-toggle { display: block; }
   .hero-inner { flex-direction: column; text-align: center; }
 }
+.small-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+}
