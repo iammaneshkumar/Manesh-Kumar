@@ -4,165 +4,782 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manesh Kumar | Portfolio</title>
+
+  <title>Manesh Kumar | Portfolio </title>
+
+  <meta
+    name="description"
+    content="Manesh Kumar — Cybersecurity and Cloud learner building practical projects in networking, security and AWS."
+  />
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
 
-  <!-- Header -->
-  <header>
+  <!-- ================= HEADER ================= -->
+
+  <header class="header" id="header">
+
     <div class="container nav">
-      <h1 class="logo">Manesh<span> Kumar</span></h1>
+
+      <a href="#home" class="logo-text">
+        Manesh <span>Kumar</span>
+      </a>
+
       <nav id="navbar">
+
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#beyond">Beyond Tech</a>
         <a href="#contact">Contact</a>
+
       </nav>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
     </div>
+
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero-inner">
 
-      <div class="logo-wrapper">
-        <span class="logo-ring"></span>
-        <img src="logo.png" alt="Manesh Kumar Logo" />
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-decoration hero-decoration-one"></div>
+      <div class="hero-decoration hero-decoration-two"></div>
+
+      <div class="container hero-inner">
+
+        <div class="hero-logo">
+
+          <div class="logo-wrapper">
+
+            <!-- DO NOT CHANGE logo.png -->
+            <img
+              src="logo.png"
+              alt="Manesh Kumar Logo"
+            />
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            Cybersecurity · Cloud · Learning
+          </p>
+
+          <h1>
+            Hi, I'm
+            <span>Manesh Kumar.</span>
+          </h1>
+
+          <p class="hero-description">
+            A cybersecurity and cloud learner focused on building
+            practical skills through hands-on projects, experimentation,
+            and continuous learning.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="#projects" class="btn primary-btn">
+              Explore Projects
+              <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <a href="#about" class="btn secondary-btn">
+              About Me
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="hero-content">
-        <h2>Hi, I'm <span>Manesh Kumar</span></h2>
-        <p>Cybersecurity & Cloud Learner</p>
-        <a href="#projects" class="btn">View My Projects</a>
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <i class="fas fa-arrow-down"></i>
       </div>
 
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section class="section" id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>BCA graduate with a strong interest in Cloud Computing and Cybersecurity. Currently, I am
-        focused on building a solid foundation by learning core concepts and practicing them hands-on.<br><br>
-        In cybersecurity, I have worked with tools like Kali Linux, Nmap, Metasploit (using Metasploitable labs), and
-        Wireshark to understand basic network scanning, vulnerability assessment, and traffic analysis.<br><br>
-        Alongside this, I am learning Cloud Computing fundamentals on AWS, where I have practiced working with services
-        such as EC2, IAM, and S3 to understand cloud infrastructure, access management, and storage concepts.<br><br>
-        I believe in learning through consistency and practical exposure rather than shortcuts. My goal is to continue
-        strengthening my fundamentals and gradually move toward cloud and security-focused roles in the future.
-      </p>
-    </div>
-  </section>
 
-  <!-- Projects -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <h2>Projects</h2>
+    <!-- ================= ABOUT ================= -->
 
-      <div class="cards">
-        <div class="card">
-          <h3>Network Scanning (Nmap)</h3>
-          <p>
-            Scanned Metasploitable machine using Nmap to find open ports,
-            services, and basic system information.
-          </p>
+    <section class="section about-section" id="about">
 
-          <a href="https://github.com/iammaneshkumar/nmap-metasploitable-vulnerability-assessment-lab.git"
-            target="_blank" class="btn small-btn">
-            View Project
-          </a>
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">A little about me</p>
+
+          <h2>
+            Building skills,
+            <span>one layer at a time.</span>
+          </h2>
+
         </div>
 
-        <div class="card">
-          <h3>Vulnerability Exploitation</h3>
-          <p>
-            Used scanning results to find weak services and exploited FTP
-            (Port 21) to gain access to the system.
-          </p>
 
-          <a href="https://github.com/iammaneshkumar/nmap-metasploitable-lab.git" target="_blank" class="btn small-btn">
-            View Project
-          </a>
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <p>
+              I am a BCA graduate with a strong interest in
+              <strong>Cybersecurity</strong> and
+              <strong>Cloud Computing</strong>.
+            </p>
+
+            <p>
+              My approach to learning is simple: understand the
+              fundamentals, practice them, break things, fix them,
+              and repeat the process.
+            </p>
+
+            <p>
+              In cybersecurity, I have worked with tools and
+              environments such as Kali Linux, Nmap, Metasploit,
+              Metasploitable, DVWA and Wireshark.
+            </p>
+
+            <p>
+              Alongside security, I am exploring AWS and cloud
+              infrastructure, including services such as EC2,
+              IAM and S3.
+            </p>
+
+            <p>
+              I am currently focused on strengthening my networking,
+              Linux, Python, cloud and defensive-security fundamentals.
+            </p>
+
+          </div>
+
+
+          <div class="about-highlights">
+
+            <div class="highlight-card">
+
+              <span class="highlight-number">01</span>
+
+              <div>
+                <h3>Cybersecurity</h3>
+                <p>
+                  Networking, Linux, scanning, vulnerability
+                  assessment and security labs.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+              <span class="highlight-number">02</span>
+
+              <div>
+                <h3>Cloud Computing</h3>
+                <p>
+                  AWS fundamentals, IAM, S3, EC2 and
+                  cloud security concepts.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="highlight-card">
+
+              <span class="highlight-number">03</span>
+
+              <div>
+                <h3>Practical Learning</h3>
+                <p>
+                  Learning by building projects instead of
+                  relying only on theory.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="card">
-          <h3>DVWA Practice</h3>
-          <p>Explored SQL Injection, XSS, brute force, and authentication flaws in Low level security.</p>
-
-          <a href="https://github.com/iammaneshkumar/dvwa-vulnerability-testing-lab.git" target="_blank"
-            class="btn small-btn">
-            View Project
-          </a>
-        </div>
-
-        <div class="card">
-          <h3>Cloud Hosted Website</h3>
-          <p>
-            Deployed a static website on AWS S3 demonstrating cloud hosting,
-            scalable deployment, and cloud-based security.
-          </p>
-
-          <a href="https://github.com/iammaneshkumar/aws-s3-static-website.git" target="_blank" class="btn small-btn">
-            View Project
-          </a>
-        </div>
-
-        <div class="card">
-          <h3>AWS IAM RBAC System</h3>
-          <p>
-            Implemented Role-Based Access Control using AWS IAM with least privilege policies.
-          </p>
-
-          <a href="https://github.com/iammaneshkumar/aws-iam-role-based-access-control.git" target="_blank"
-            class="btn small-btn">
-            View Project
-          </a>
-        </div>
-        <div class="card">
-          <h3>Password Strength Checker (Python)</h3>
-          <p> Developed a Python-based password strength checker that evaluates password complexity based on length,
-            uppercase and lowercase letters, numbers, and special characters to encourage secure password practices.
-          </p>
-
-          <a href="https://github.com/iammaneshkumar/password-strength-checker.git" target="_blank"
-            class="btn small-btn">
-            View Project
-          </a>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Contact -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Email:
-        <a href="mailto:me@maneshkumar.in" class="email">
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section class="section projects-section" id="projects">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">Selected work</p>
+
+          <h2>
+            Projects I've
+            <span>worked on.</span>
+          </h2>
+
+          <p class="section-description">
+            Practical labs and small projects created while learning
+            cybersecurity, networking, Python and cloud computing.
+          </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+          <!-- PROJECT 1 -->
+
+          <article class="project-card">
+
+            <div class="project-number">01</div>
+
+            <div class="project-content">
+
+              <div class="project-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+
+              <h3>Network Scanning</h3>
+
+              <p class="project-tech">
+                Nmap · Metasploitable · Networking
+              </p>
+
+              <p>
+                Scanned a Metasploitable machine using Nmap
+                to identify open ports, running services and
+                basic system information.
+              </p>
+
+              <a
+                href="https://github.com/iammaneshkumar/nmap-metasploitable-vulnerability-assessment-lab"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View Project
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 2 -->
+
+          <article class="project-card">
+
+            <div class="project-number">02</div>
+
+            <div class="project-content">
+
+              <div class="project-icon">
+                <i class="fas fa-bug"></i>
+              </div>
+
+              <h3>Vulnerability Exploitation</h3>
+
+              <p class="project-tech">
+                Metasploit · FTP · Metasploitable
+              </p>
+
+              <p>
+                Used network scanning results to investigate
+                vulnerable services and practiced exploitation
+                of an FTP service in a controlled lab environment.
+              </p>
+
+              <a
+                href="https://github.com/iammaneshkumar/nmap-metasploitable-lab"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View Project
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 3 -->
+
+          <article class="project-card">
+
+            <div class="project-number">03</div>
+
+            <div class="project-content">
+
+              <div class="project-icon">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+
+              <h3>DVWA Security Lab</h3>
+
+              <p class="project-tech">
+                DVWA · SQL Injection · XSS · Brute Force
+              </p>
+
+              <p>
+                Practiced common web application vulnerabilities
+                including SQL injection, cross-site scripting,
+                brute-force attacks and authentication weaknesses.
+              </p>
+
+              <a
+                href="https://github.com/iammaneshkumar/dvwa-vulnerability-testing-lab"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View Project
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 4 -->
+
+          <article class="project-card">
+
+            <div class="project-number">04</div>
+
+            <div class="project-content">
+
+              <div class="project-icon">
+                <i class="fab fa-aws"></i>
+              </div>
+
+              <h3>Cloud Hosted Website</h3>
+
+              <p class="project-tech">
+                AWS · S3 · Cloud Hosting
+              </p>
+
+              <p>
+                Deployed a static website using Amazon S3 to
+                understand cloud-based hosting, storage and
+                basic infrastructure concepts.
+              </p>
+
+              <a
+                href="https://github.com/iammaneshkumar/aws-s3-static-website"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View Project
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 5 -->
+
+          <article class="project-card">
+
+            <div class="project-number">05</div>
+
+            <div class="project-content">
+
+              <div class="project-icon">
+                <i class="fas fa-user-lock"></i>
+              </div>
+
+              <h3>AWS IAM RBAC System</h3>
+
+              <p class="project-tech">
+                AWS IAM · RBAC · Least Privilege
+              </p>
+
+              <p>
+                Implemented role-based access control using
+                AWS IAM policies while exploring permission
+                management and the principle of least privilege.
+              </p>
+
+              <a
+                href="https://github.com/iammaneshkumar/aws-iam-role-based-access-control"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View Project
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 6 -->
+
+          <article class="project-card">
+
+            <div class="project-number">06</div>
+
+            <div class="project-content">
+
+              <div class="project-icon">
+                <i class="fas fa-key"></i>
+              </div>
+
+              <h3>Password Strength Checker</h3>
+
+              <p class="project-tech">
+                Python · CLI · Security
+              </p>
+
+              <p>
+                Developed a Python-based password strength
+                checker that evaluates length, character
+                variety and password complexity.
+              </p>
+
+              <a
+                href="https://github.com/iammaneshkumar/password-strength-checker"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View Project
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 7 — NETSCOPE -->
+
+          <article class="project-card featured-project">
+
+            <div class="project-number">07</div>
+
+            <div class="project-content">
+
+              <div class="project-icon">
+                <i class="fas fa-radar"></i>
+              </div>
+
+              <h3>NetScope</h3>
+
+              <p class="project-tech">
+                Python · TCP · Socket Programming
+              </p>
+
+              <p>
+                A Python-based TCP port scanner that checks a
+                specified range of ports on a hostname or IP address
+                and identifies reachable TCP services.
+              </p>
+
+              <!--
+                Replace this URL with the actual NetScope
+                GitHub repository when you create it.
+              -->
+
+              <a
+                href="https://github.com/iammaneshkumar/netscope.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View Project
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BEYOND TECH ================= -->
+
+    <section class="section beyond-section" id="beyond">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">Beyond technology</p>
+
+          <h2>
+            The things that exist
+            <span>outside the screen.</span>
+          </h2>
+
+          <p class="section-description">
+            Technology is one part of who I am. Music, thought,
+            emotion and quiet interests occupy the other side.
+          </p>
+
+        </div>
+
+
+        <!-- RETURN TO INNOCENCE -->
+
+        <div class="innocence-card">
+
+          <div class="innocence-content">
+
+            <p class="eyebrow">A personal space</p>
+
+            <h3>Return to Innocence</h3>
+
+            <p>
+              A quiet corner for the things that cannot always
+              be explained through logic — love, devotion,
+              feeling and emotion.
+            </p>
+
+          </div>
+
+
+          <div class="innocence-words">
+
+            <span>Love</span>
+            <span>Devotion</span>
+            <span>Feeling</span>
+            <span>Emotion</span>
+
+          </div>
+
+        </div>
+
+
+        <!-- HOBBIES -->
+
+        <div class="hobbies-wrapper">
+
+          <div class="hobbies-heading">
+
+            <p class="eyebrow">Personal interests</p>
+
+            <h3>A Different Side of Me.</h3>
+
+          </div>
+
+
+          <div class="hobbies-grid">
+
+            <div class="hobby-card">
+
+              <i class="fas fa-guitar"></i>
+
+              <h4>Guitar</h4>
+
+              <p>
+                Playing and exploring music.
+              </p>
+
+            </div>
+
+
+            <div class="hobby-card">
+
+              <i class="fas fa-music"></i>
+
+              <h4>Piano</h4>
+
+              <p>
+                Another way of expressing ideas without words.
+              </p>
+
+            </div>
+
+
+            <div class="hobby-card">
+
+              <i class="fas fa-music"></i>
+
+              <h4>Melodica</h4>
+
+              <p>
+                A small instrument with a surprisingly expressive sound.
+              </p>
+
+            </div>
+
+
+            <div class="hobby-card">
+
+              <i class="fas fa-chess-knight"></i>
+
+              <h4>Chess</h4>
+
+              <p>
+                Strategy, patience and thinking ahead.
+              </p>
+
+            </div>
+
+
+            <div class="hobby-card">
+
+              <i class="fas fa-cube"></i>
+
+              <h4>Rubik's Cube</h4>
+
+              <p>
+                Solving patterns one move at a time.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="section contact-section" id="contact">
+
+      <div class="container contact-container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">Get in touch</p>
+
+          <h2>
+            Let's stay
+            <span>connected.</span>
+          </h2>
+
+          <p class="section-description">
+            If you'd like to discuss technology, cybersecurity,
+            cloud computing or a project, feel free to reach out.
+          </p>
+
+        </div>
+
+
+        <a
+          href="mailto:me@maneshkumar.in"
+          class="email-link"
+        >
           me@maneshkumar.in
+          <i class="fas fa-arrow-up-right-from-square"></i>
         </a>
-      </p>
-      <p>Connect with me on:</p>
-      <div class="social-links">
-        <a href="https://github.com/iammaneshkumar" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/iammaneshkumar?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-          target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
+
+        <div class="social-links">
+
+          <a
+            href="https://github.com/iammaneshkumar"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+
+
+          <a
+            href="https://www.linkedin.com/in/iammaneshkumar"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
   <footer>
-    <p>© <span id="year"></span> Manesh Kumar. All rights reserved.</p>
+
+    <div class="container footer-inner">
+
+      <p>
+        © <span id="year"></span> Manesh Kumar.
+      </p>
+
+      <p>
+        Built with curiosity.
+      </p>
+
+    </div>
+
   </footer>
 
+
+  <!-- JavaScript -->
   <script src="script.js"></script>
+
 </body>
 
 </html>
