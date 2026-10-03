@@ -5,16 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Manesh Kumar | Portfolio </title>
+  <title>Manesh Kumar | Portfolio</title>
 
   <meta
     name="description"
     content="Manesh Kumar — Cybersecurity and Cloud learner building practical projects in networking, security and AWS."
   />
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&family=Noto+Serif+Devanagari:wght@400;500&display=swap"
     rel="stylesheet"
   />
 
@@ -28,9 +28,12 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
+
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
 
   <header class="header" id="header">
 
@@ -40,7 +43,8 @@
         Manesh <span>Kumar</span>
       </a>
 
-      <nav id="navbar">
+      <!-- Desktop navigation -->
+      <nav class="desktop-nav" aria-label="Primary navigation">
 
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -50,11 +54,15 @@
 
       </nav>
 
+
+      <!-- Mobile menu button -->
       <button
         class="menu-toggle"
         id="menu-toggle"
+        type="button"
         aria-label="Open navigation menu"
         aria-expanded="false"
+        aria-controls="mobile-nav"
       >
         <i class="fas fa-bars"></i>
       </button>
@@ -64,13 +72,96 @@
   </header>
 
 
-  <!-- ================= HERO ================= -->
+  <!-- =====================================================
+       MOBILE NAVIGATION
+       
+       IMPORTANT:
+       This is OUTSIDE the header.
+       Therefore the sticky header cannot interfere
+       with the mobile drawer while scrolling.
+       ===================================================== -->
+
+  <div
+    class="nav-overlay"
+    id="nav-overlay"
+    aria-hidden="true"
+  ></div>
+
+
+  <aside
+    class="mobile-nav"
+    id="mobile-nav"
+    aria-label="Mobile navigation"
+    aria-hidden="true"
+  >
+
+    <div class="mobile-nav-header">
+
+      <span class="mobile-nav-title">
+        Navigation
+      </span>
+
+      <button
+        class="mobile-close"
+        id="mobile-close"
+        type="button"
+        aria-label="Close navigation menu"
+      >
+        <i class="fas fa-xmark"></i>
+      </button>
+
+    </div>
+
+
+    <nav class="mobile-nav-links">
+
+      <a href="#home">
+        <span>01</span>
+        Home
+      </a>
+
+      <a href="#about">
+        <span>02</span>
+        About
+      </a>
+
+      <a href="#projects">
+        <span>03</span>
+        Projects
+      </a>
+
+      <a href="#beyond">
+        <span>04</span>
+        Beyond Tech
+      </a>
+
+      <a href="#contact">
+        <span>05</span>
+        Contact
+      </a>
+
+    </nav>
+
+
+    <div class="mobile-nav-footer">
+      Manesh Kumar
+    </div>
+
+  </aside>
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
 
   <main>
 
-    <section class="hero" id="home">
 
-      <div class="hero-decoration hero-decoration-one"></div>
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+
+    <section class="hero" id="home">
       <div class="hero-decoration hero-decoration-two"></div>
 
       <div class="container hero-inner">
@@ -107,6 +198,7 @@
             and continuous learning.
           </p>
 
+
           <div class="hero-buttons">
 
             <a href="#projects" class="btn primary-btn">
@@ -124,15 +216,21 @@
 
       </div>
 
+
       <div class="scroll-indicator">
+
         <span>Scroll to explore</span>
+
         <i class="fas fa-arrow-down"></i>
+
       </div>
 
     </section>
 
 
-    <!-- ================= ABOUT ================= -->
+    <!-- ===================================================
+         ABOUT
+         =================================================== -->
 
     <section class="section about-section" id="about">
 
@@ -140,7 +238,9 @@
 
         <div class="section-heading">
 
-          <p class="eyebrow">A little about me</p>
+          <p class="eyebrow">
+            A little about me
+          </p>
 
           <h2>
             Building skills,
@@ -151,6 +251,7 @@
 
 
         <div class="about-grid">
+
 
           <div class="about-text">
 
@@ -190,14 +291,21 @@
 
             <div class="highlight-card">
 
-              <span class="highlight-number">01</span>
+              <span class="highlight-number">
+                01
+              </span>
 
               <div>
-                <h3>Cybersecurity</h3>
+
+                <h3>
+                  Cybersecurity
+                </h3>
+
                 <p>
                   Networking, Linux, scanning, vulnerability
                   assessment and security labs.
                 </p>
+
               </div>
 
             </div>
@@ -205,14 +313,21 @@
 
             <div class="highlight-card">
 
-              <span class="highlight-number">02</span>
+              <span class="highlight-number">
+                02
+              </span>
 
               <div>
-                <h3>Cloud Computing</h3>
+
+                <h3>
+                  Cloud Computing
+                </h3>
+
                 <p>
                   AWS fundamentals, IAM, S3, EC2 and
                   cloud security concepts.
                 </p>
+
               </div>
 
             </div>
@@ -220,14 +335,21 @@
 
             <div class="highlight-card">
 
-              <span class="highlight-number">03</span>
+              <span class="highlight-number">
+                03
+              </span>
 
               <div>
-                <h3>Practical Learning</h3>
+
+                <h3>
+                  Practical Learning
+                </h3>
+
                 <p>
                   Learning by building projects instead of
                   relying only on theory.
                 </p>
+
               </div>
 
             </div>
@@ -241,7 +363,9 @@
     </section>
 
 
-    <!-- ================= PROJECTS ================= -->
+    <!-- ===================================================
+         PROJECTS
+         =================================================== -->
 
     <section class="section projects-section" id="projects">
 
@@ -249,7 +373,9 @@
 
         <div class="section-heading">
 
-          <p class="eyebrow">Selected work</p>
+          <p class="eyebrow">
+            Selected work
+          </p>
 
           <h2>
             Projects I've
@@ -271,7 +397,9 @@
 
           <article class="project-card">
 
-            <div class="project-number">01</div>
+            <div class="project-number">
+              01
+            </div>
 
             <div class="project-content">
 
@@ -279,7 +407,9 @@
                 <i class="fas fa-network-wired"></i>
               </div>
 
-              <h3>Network Scanning</h3>
+              <h3>
+                Network Scanning
+              </h3>
 
               <p class="project-tech">
                 Nmap · Metasploitable · Networking
@@ -310,7 +440,9 @@
 
           <article class="project-card">
 
-            <div class="project-number">02</div>
+            <div class="project-number">
+              02
+            </div>
 
             <div class="project-content">
 
@@ -318,7 +450,9 @@
                 <i class="fas fa-bug"></i>
               </div>
 
-              <h3>Vulnerability Exploitation</h3>
+              <h3>
+                Vulnerability Exploitation
+              </h3>
 
               <p class="project-tech">
                 Metasploit · FTP · Metasploitable
@@ -349,7 +483,9 @@
 
           <article class="project-card">
 
-            <div class="project-number">03</div>
+            <div class="project-number">
+              03
+            </div>
 
             <div class="project-content">
 
@@ -357,7 +493,9 @@
                 <i class="fas fa-shield-halved"></i>
               </div>
 
-              <h3>DVWA Security Lab</h3>
+              <h3>
+                DVWA Security Lab
+              </h3>
 
               <p class="project-tech">
                 DVWA · SQL Injection · XSS · Brute Force
@@ -388,7 +526,9 @@
 
           <article class="project-card">
 
-            <div class="project-number">04</div>
+            <div class="project-number">
+              04
+            </div>
 
             <div class="project-content">
 
@@ -396,7 +536,9 @@
                 <i class="fab fa-aws"></i>
               </div>
 
-              <h3>Cloud Hosted Website</h3>
+              <h3>
+                Cloud Hosted Website
+              </h3>
 
               <p class="project-tech">
                 AWS · S3 · Cloud Hosting
@@ -427,7 +569,9 @@
 
           <article class="project-card">
 
-            <div class="project-number">05</div>
+            <div class="project-number">
+              05
+            </div>
 
             <div class="project-content">
 
@@ -435,7 +579,9 @@
                 <i class="fas fa-user-lock"></i>
               </div>
 
-              <h3>AWS IAM RBAC System</h3>
+              <h3>
+                AWS IAM RBAC System
+              </h3>
 
               <p class="project-tech">
                 AWS IAM · RBAC · Least Privilege
@@ -466,7 +612,9 @@
 
           <article class="project-card">
 
-            <div class="project-number">06</div>
+            <div class="project-number">
+              06
+            </div>
 
             <div class="project-content">
 
@@ -474,7 +622,9 @@
                 <i class="fas fa-key"></i>
               </div>
 
-              <h3>Password Strength Checker</h3>
+              <h3>
+                Password Strength Checker
+              </h3>
 
               <p class="project-tech">
                 Python · CLI · Security
@@ -501,11 +651,13 @@
           </article>
 
 
-          <!-- PROJECT 7 — NETSCOPE -->
+          <!-- PROJECT 7 -->
 
           <article class="project-card featured-project">
 
-            <div class="project-number">07</div>
+            <div class="project-number">
+              07
+            </div>
 
             <div class="project-content">
 
@@ -513,7 +665,9 @@
                 <i class="fas fa-radar"></i>
               </div>
 
-              <h3>NetScope</h3>
+              <h3>
+                NetScope
+              </h3>
 
               <p class="project-tech">
                 Python · TCP · Socket Programming
@@ -525,13 +679,8 @@
                 and identifies reachable TCP services.
               </p>
 
-              <!--
-                Replace this URL with the actual NetScope
-                GitHub repository when you create it.
-              -->
-
               <a
-                href="https://github.com/iammaneshkumar/netscope.git"
+                href="https://github.com/iammaneshkumar/netscope"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="project-link"
@@ -552,7 +701,9 @@
     </section>
 
 
-    <!-- ================= BEYOND TECH ================= -->
+    <!-- ===================================================
+         BEYOND TECH
+         =================================================== -->
 
     <section class="section beyond-section" id="beyond">
 
@@ -560,7 +711,9 @@
 
         <div class="section-heading">
 
-          <p class="eyebrow">Beyond technology</p>
+          <p class="eyebrow">
+            Beyond technology
+          </p>
 
           <h2>
             The things that exist
@@ -575,15 +728,19 @@
         </div>
 
 
-        <!-- RETURN TO INNOCENCE -->
+        <!-- PERSONAL SPACE -->
 
         <div class="innocence-card">
 
           <div class="innocence-content">
 
-            <p class="eyebrow">A personal space</p>
+            <p class="eyebrow">
+              A personal space
+            </p>
 
-            <h3>Return to Innocence</h3>
+            <h3>
+              Return to Innocence
+            </h3>
 
             <p>
               A quiet corner for the things that cannot always
@@ -606,26 +763,51 @@
         </div>
 
 
+        <!-- HINDI QUOTE -->
+
+        <div class="personal-quote">
+
+          <span class="quote-mark">
+            “
+          </span>
+
+          <p>
+            कोमल सा एहसास दिल में रखकर,<br />
+            मैं अपने ख़्वाबों की राह पर चलता रहूँगा
+          </p>
+
+          <span class="quote-line"></span>
+
+        </div>
+
+
         <!-- HOBBIES -->
 
         <div class="hobbies-wrapper">
 
           <div class="hobbies-heading">
 
-            <p class="eyebrow">Personal interests</p>
+            <p class="eyebrow">
+              Personal interests
+            </p>
 
-            <h3>A Different Side of Me.</h3>
+            <h3>
+              A Different Side of Me.
+            </h3>
 
           </div>
 
 
           <div class="hobbies-grid">
 
+
             <div class="hobby-card">
 
               <i class="fas fa-guitar"></i>
 
-              <h4>Guitar</h4>
+              <h4>
+                Guitar
+              </h4>
 
               <p>
                 Playing and exploring music.
@@ -638,7 +820,9 @@
 
               <i class="fas fa-music"></i>
 
-              <h4>Piano</h4>
+              <h4>
+                Piano
+              </h4>
 
               <p>
                 Another way of expressing ideas without words.
@@ -651,7 +835,9 @@
 
               <i class="fas fa-music"></i>
 
-              <h4>Melodica</h4>
+              <h4>
+                Melodica
+              </h4>
 
               <p>
                 A small instrument with a surprisingly expressive sound.
@@ -664,7 +850,9 @@
 
               <i class="fas fa-chess-knight"></i>
 
-              <h4>Chess</h4>
+              <h4>
+                Chess
+              </h4>
 
               <p>
                 Strategy, patience and thinking ahead.
@@ -677,13 +865,16 @@
 
               <i class="fas fa-cube"></i>
 
-              <h4>Rubik's Cube</h4>
+              <h4>
+                Rubik's Cube
+              </h4>
 
               <p>
                 Solving patterns one move at a time.
               </p>
 
             </div>
+
 
           </div>
 
@@ -694,7 +885,9 @@
     </section>
 
 
-    <!-- ================= CONTACT ================= -->
+    <!-- ===================================================
+         CONTACT
+         =================================================== -->
 
     <section class="section contact-section" id="contact">
 
@@ -702,7 +895,9 @@
 
         <div class="section-heading">
 
-          <p class="eyebrow">Get in touch</p>
+          <p class="eyebrow">
+            Get in touch
+          </p>
 
           <h2>
             Let's stay
@@ -728,26 +923,42 @@
 
         <div class="social-links">
 
-          <a
-            href="https://github.com/iammaneshkumar"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-            <span>GitHub</span>
-          </a>
+          <div class="social-links">
 
+  <!-- GitHub — KEEP -->
+  <a
+    href="https://github.com/iammaneshkumar"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+  >
+    <i class="fab fa-github"></i>
+    <span>GitHub</span>
+  </a>
 
-          <a
-            href="https://www.linkedin.com/in/iammaneshkumar"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-            <span>LinkedIn</span>
-          </a>
+  <!-- LinkedIn — KEEP -->
+  <a
+    href="https://www.linkedin.com/in/iammaneshkumar"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+  >
+    <i class="fab fa-linkedin"></i>
+    <span>LinkedIn</span>
+  </a>
+
+  <!-- Instagram — ADD -->
+  <a
+    href="https://www.instagram.com/iammaneshkumar/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+  >
+    <i class="fab fa-instagram"></i>
+    <span>Instagram</span>
+  </a>
+
+</div>
 
         </div>
 
@@ -758,7 +969,9 @@
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
 
   <footer>
 

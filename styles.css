@@ -35,7 +35,6 @@
     0 25px 60px rgba(65, 47, 36, 0.15);
 
   --radius: 18px;
-
 }
 
 
@@ -52,11 +51,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 
 body {
-
   font-family: "Inter", sans-serif;
 
   background: var(--ivory);
@@ -65,8 +64,7 @@ body {
 
   line-height: 1.7;
 
-  overflow-x: hidden;
-
+  overflow-x: clip;
 }
 
 
@@ -90,11 +88,8 @@ button {
    ========================= */
 
 .container {
-
   width: min(90%, 1120px);
-
   margin: 0 auto;
-
 }
 
 
@@ -103,7 +98,6 @@ button {
    ========================= */
 
 .header {
-
   position: sticky;
 
   top: 0;
@@ -115,14 +109,14 @@ button {
 
   backdrop-filter: blur(14px);
 
+  -webkit-backdrop-filter: blur(14px);
+
   border-bottom:
     1px solid var(--border);
-
 }
 
 
 .nav {
-
   min-height: 76px;
 
   display: flex;
@@ -130,14 +124,14 @@ button {
   align-items: center;
 
   justify-content: space-between;
-
 }
 
 
-/* Logo */
+/* =========================
+   LOGO
+   ========================= */
 
 .logo-text {
-
   text-decoration: none;
 
   color: var(--brown-dark);
@@ -149,32 +143,28 @@ button {
   font-weight: 600;
 
   letter-spacing: -0.02em;
-
 }
 
 
 .logo-text span {
-
   color: var(--gold);
-
 }
 
 
-/* Navigation */
+/* =========================
+   DESKTOP NAVIGATION
+   ========================= */
 
-nav {
-
+.desktop-nav {
   display: flex;
 
   align-items: center;
 
   gap: 2rem;
-
 }
 
 
-nav a {
-
+.desktop-nav a {
   position: relative;
 
   text-decoration: none;
@@ -187,12 +177,10 @@ nav a {
 
   transition:
     color 0.3s ease;
-
 }
 
 
-nav a::after {
-
+.desktop-nav a::after {
   content: "";
 
   position: absolute;
@@ -209,28 +197,24 @@ nav a::after {
 
   transition:
     width 0.3s ease;
-
 }
 
 
-nav a:hover {
-
+.desktop-nav a:hover {
   color: var(--brown-dark);
-
 }
 
 
-nav a:hover::after {
-
+.desktop-nav a:hover::after {
   width: 100%;
-
 }
 
 
-/* Mobile menu button */
+/* =========================
+   MENU TOGGLE
+   ========================= */
 
 .menu-toggle {
-
   display: none;
 
   border: none;
@@ -243,6 +227,273 @@ nav a:hover::after {
 
   cursor: pointer;
 
+  padding: 0.4rem;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+/*
+   The mobile navigation is NOT inside the header.
+
+   This is intentional.
+
+   It prevents:
+   - sticky header blur problems
+   - navigation disappearing while scrolling
+   - drawer becoming trapped inside header
+   - mobile menu only working at top of page
+*/
+
+
+.mobile-nav {
+  position: fixed;
+
+  top: 0;
+
+  right: 0;
+
+  width: min(290px, 84vw);
+
+  height: 100vh;
+
+  height: 100dvh;
+
+  background: var(--ivory);
+
+  z-index: 5000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 1.5rem 1.5rem 1.25rem;
+
+  transform:
+    translate3d(100%, 0, 0);
+
+  visibility: hidden;
+
+  opacity: 0;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease,
+    visibility 0.35s ease;
+
+  box-shadow:
+    -15px 0 45px rgba(51, 37, 30, 0.14);
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.mobile-nav.active {
+  transform:
+    translate3d(0, 0, 0);
+
+  visibility: visible;
+
+  opacity: 1;
+}
+
+
+/* =========================
+   MOBILE NAV HEADER
+   ========================= */
+
+.mobile-nav-header {
+  min-height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-bottom:
+    1px solid var(--border);
+
+  margin-bottom: 1.5rem;
+}
+
+
+.mobile-nav-title {
+  font-family:
+    "Playfair Display",
+    serif;
+
+  color: var(--brown-dark);
+
+  font-size: 1.15rem;
+}
+
+
+.mobile-close {
+  width: 40px;
+
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--brown);
+
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.mobile-close:hover {
+  background: var(--cream);
+
+  transform: rotate(5deg);
+}
+
+
+/* =========================
+   MOBILE NAV LINKS
+   ========================= */
+
+.mobile-nav-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+
+.mobile-nav-links a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  width: 100%;
+
+  padding: 0.9rem 0;
+
+  color: var(--brown);
+
+  text-decoration: none;
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  border-bottom:
+    1px solid rgba(90, 68, 54, 0.08);
+
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+
+.mobile-nav-links a span {
+  color: var(--gold);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 0.75rem;
+
+  min-width: 24px;
+}
+
+
+.mobile-nav-links a:hover {
+  color: var(--gold);
+
+  padding-left: 5px;
+}
+
+
+/* =========================
+   MOBILE NAV FOOTER
+   ========================= */
+
+.mobile-nav-footer {
+  margin-top: auto;
+
+  padding-top: 1.5rem;
+
+  color: var(--text-soft);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 0.9rem;
+
+  border-top:
+    1px solid var(--border);
+}
+
+
+/* =========================
+   MOBILE OVERLAY
+   ========================= */
+
+.nav-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 4000;
+
+  background:
+    rgba(51, 37, 30, 0.24);
+
+  backdrop-filter: blur(3px);
+
+  -webkit-backdrop-filter: blur(3px);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+.nav-overlay.active {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
 }
 
 
@@ -251,8 +502,8 @@ nav a:hover::after {
    ========================= */
 
 .hero {
-
-  min-height: calc(100vh - 76px);
+  min-height:
+    calc(100vh - 76px);
 
   position: relative;
 
@@ -274,12 +525,10 @@ nav a:hover::after {
       var(--ivory),
       #f3ede4
     );
-
 }
 
 
 .hero-inner {
-
   display: grid;
 
   grid-template-columns:
@@ -290,11 +539,21 @@ nav a:hover::after {
   gap: 5rem;
 
   padding: 5rem 0;
-
 }
 
 
-/* Decorative shapes */
+/* =========================
+   HERO DECORATION
+   ========================= */
+
+.hero-decoration {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
 
 .hero-decoration {
 
@@ -307,20 +566,7 @@ nav a:hover::after {
 }
 
 
-.hero-decoration-one {
-
-  width: 350px;
-
-  height: 350px;
-
-  right: -150px;
-
-  top: 10%;
-
-  border:
-    1px solid rgba(168, 134, 92, 0.2);
-
-}
+/* DELETE .hero-decoration-one */
 
 
 .hero-decoration-two {
@@ -339,19 +585,32 @@ nav a:hover::after {
 }
 
 
-/* Logo */
+.hero-decoration-two {
+  width: 180px;
+
+  height: 180px;
+
+  left: -90px;
+
+  bottom: 10%;
+
+  background:
+    rgba(203, 187, 165, 0.12);
+}
+
+
+/* =========================
+   HERO LOGO
+   ========================= */
 
 .hero-logo {
-
   display: flex;
 
   justify-content: center;
-
 }
 
 
 .logo-wrapper {
-
   width: 245px;
 
   height: 245px;
@@ -363,16 +622,10 @@ nav a:hover::after {
   justify-content: center;
 
   position: relative;
-
 }
 
 
-/*
-  The original logo image remains untouched.
-*/
-
 .logo-wrapper img {
-
   width: 215px;
 
   height: 215px;
@@ -384,16 +637,10 @@ nav a:hover::after {
   position: relative;
 
   z-index: 2;
-
 }
 
 
-/*
-  Premium subtle ring around the existing logo.
-*/
-
 .logo-wrapper::before {
-
   content: "";
 
   position: absolute;
@@ -406,12 +653,10 @@ nav a:hover::after {
     1px solid var(--gold);
 
   opacity: 0.65;
-
 }
 
 
 .logo-wrapper::after {
-
   content: "";
 
   position: absolute;
@@ -422,14 +667,14 @@ nav a:hover::after {
 
   border:
     1px solid rgba(168, 134, 92, 0.25);
-
 }
 
 
-/* Hero content */
+/* =========================
+   HERO CONTENT
+   ========================= */
 
 .eyebrow {
-
   color: var(--gold);
 
   text-transform: uppercase;
@@ -441,38 +686,35 @@ nav a:hover::after {
   font-weight: 600;
 
   margin-bottom: 1rem;
-
 }
 
 
 .hero-content h1 {
-
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
   color: var(--brown-dark);
 
-  font-size: clamp(3rem, 6vw, 5.2rem);
+  font-size:
+    clamp(3rem, 6vw, 5.2rem);
 
   line-height: 1.05;
 
   letter-spacing: -0.045em;
 
   font-weight: 600;
-
 }
 
 
 .hero-content h1 span {
-
   display: block;
 
   color: var(--brown);
-
 }
 
 
 .hero-description {
-
   max-width: 600px;
 
   margin-top: 1.5rem;
@@ -482,18 +724,15 @@ nav a:hover::after {
   font-size: 1rem;
 
   line-height: 1.8;
-
 }
 
 
 .hero-buttons {
-
   display: flex;
 
   gap: 1rem;
 
   margin-top: 2rem;
-
 }
 
 
@@ -502,7 +741,6 @@ nav a:hover::after {
    ========================= */
 
 .btn {
-
   display: inline-flex;
 
   align-items: center;
@@ -526,66 +764,61 @@ nav a:hover::after {
     transform 0.3s ease,
     box-shadow 0.3s ease,
     background 0.3s ease;
-
 }
 
 
 .primary-btn {
-
   background: var(--brown);
 
   color: var(--ivory);
 
   box-shadow:
     0 8px 20px rgba(90, 68, 54, 0.18);
-
 }
 
 
 .primary-btn:hover {
-
   background: var(--brown-dark);
 
-  transform: translateY(-2px);
+  transform:
+    translateY(-2px);
 
   box-shadow:
     0 12px 28px rgba(90, 68, 54, 0.25);
-
 }
 
 
 .secondary-btn {
-
   color: var(--brown);
 
   border:
     1px solid var(--border);
 
   background: transparent;
-
 }
 
 
 .secondary-btn:hover {
-
   background: var(--cream);
 
-  transform: translateY(-2px);
-
+  transform:
+    translateY(-2px);
 }
 
 
-/* Scroll indicator */
+/* =========================
+   SCROLL INDICATOR
+   ========================= */
 
 .scroll-indicator {
-
   position: absolute;
 
   bottom: 25px;
 
   left: 50%;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
   display: flex;
 
@@ -604,7 +837,6 @@ nav a:hover::after {
   letter-spacing: 0.12em;
 
   opacity: 0.7;
-
 }
 
 
@@ -613,79 +845,64 @@ nav a:hover::after {
    ========================= */
 
 .section {
-
   padding: 7rem 0;
-
 }
 
 
 .about-section {
-
   background: var(--ivory);
-
 }
 
 
 .projects-section {
-
   background: var(--cream);
-
 }
 
 
 .beyond-section {
-
   background: var(--ivory);
-
 }
 
 
 .contact-section {
-
   background: var(--cream);
-
 }
 
 
 .section-heading {
-
   max-width: 700px;
 
   margin-bottom: 4rem;
-
 }
 
 
 .section-heading h2 {
+  font-family:
+    "Playfair Display",
+    serif;
 
-  font-family: "Playfair Display", serif;
-
-  font-size: clamp(2.3rem, 4vw, 3.7rem);
+  font-size:
+    clamp(2.3rem, 4vw, 3.7rem);
 
   line-height: 1.1;
 
   color: var(--brown-dark);
 
   letter-spacing: -0.035em;
-
 }
 
 
 .section-heading h2 span {
-
   color: var(--brown-soft);
-
 }
 
 
 .section-description {
-
   max-width: 600px;
 
   margin-top: 1.2rem;
 
   color: var(--text-soft);
-
 }
 
 
@@ -694,7 +911,6 @@ nav a:hover::after {
    ========================= */
 
 .about-grid {
-
   display: grid;
 
   grid-template-columns:
@@ -703,51 +919,44 @@ nav a:hover::after {
   gap: 5rem;
 
   align-items: start;
-
 }
 
 
 .about-text {
-
   color: var(--text-soft);
-
 }
 
 
 .about-text p {
-
   margin-bottom: 1.3rem;
-
 }
 
 
 .about-text strong {
-
   color: var(--brown);
 
   font-weight: 600;
-
 }
 
 
-/* Highlights */
+/* =========================
+   HIGHLIGHTS
+   ========================= */
 
 .about-highlights {
-
   display: flex;
 
   flex-direction: column;
 
   gap: 1rem;
-
 }
 
 
 .highlight-card {
-
   display: grid;
 
-  grid-template-columns: 45px 1fr;
+  grid-template-columns:
+    45px 1fr;
 
   gap: 1rem;
 
@@ -764,49 +973,44 @@ nav a:hover::after {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-
 }
 
 
 .highlight-card:hover {
+  transform:
+    translateY(-4px);
 
-  transform: translateY(-4px);
-
-  box-shadow: var(--shadow);
-
+  box-shadow:
+    var(--shadow);
 }
 
 
 .highlight-number {
-
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
   color: var(--gold);
 
   font-size: 1.2rem;
-
 }
 
 
 .highlight-card h3 {
-
   color: var(--brown-dark);
 
   font-size: 1rem;
 
   margin-bottom: 0.25rem;
-
 }
 
 
 .highlight-card p {
-
   color: var(--text-soft);
 
   font-size: 0.85rem;
 
   line-height: 1.6;
-
 }
 
 
@@ -815,19 +1019,16 @@ nav a:hover::after {
    ========================= */
 
 .projects-grid {
-
   display: grid;
 
   grid-template-columns:
     repeat(2, 1fr);
 
   gap: 1.4rem;
-
 }
 
 
 .project-card {
-
   position: relative;
 
   min-height: 350px;
@@ -852,45 +1053,40 @@ nav a:hover::after {
     transform 0.35s ease,
     box-shadow 0.35s ease,
     border-color 0.35s ease;
-
 }
 
 
 .project-card:hover {
+  transform:
+    translateY(-7px);
 
-  transform: translateY(-7px);
-
-  box-shadow: var(--shadow-hover);
+  box-shadow:
+    var(--shadow-hover);
 
   border-color:
     rgba(168, 134, 92, 0.4);
-
 }
 
 
-/* Project number */
-
 .project-number {
-
   position: absolute;
 
   right: 1.5rem;
 
   top: 1.2rem;
 
-  color: rgba(90, 68, 54, 0.15);
+  color:
+    rgba(90, 68, 54, 0.15);
 
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
   font-size: 3rem;
-
 }
 
 
-/* Featured NetScope */
-
 .featured-project {
-
   background:
     linear-gradient(
       135deg,
@@ -900,12 +1096,10 @@ nav a:hover::after {
 
   border-color:
     rgba(168, 134, 92, 0.35);
-
 }
 
 
 .project-content {
-
   display: flex;
 
   flex-direction: column;
@@ -915,12 +1109,10 @@ nav a:hover::after {
   position: relative;
 
   z-index: 1;
-
 }
 
 
 .project-icon {
-
   width: 45px;
 
   height: 45px;
@@ -938,25 +1130,23 @@ nav a:hover::after {
   color: var(--ivory);
 
   margin-bottom: 1.5rem;
-
 }
 
 
 .project-card h3 {
-
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
   color: var(--brown-dark);
 
   font-size: 1.5rem;
 
   margin-bottom: 0.3rem;
-
 }
 
 
 .project-tech {
-
   color: var(--gold);
 
   font-size: 0.72rem;
@@ -966,23 +1156,19 @@ nav a:hover::after {
   letter-spacing: 0.04em;
 
   margin-bottom: 1rem;
-
 }
 
 
 .project-card p:not(.project-tech) {
-
   color: var(--text-soft);
 
   font-size: 0.87rem;
 
   line-height: 1.7;
-
 }
 
 
 .project-link {
-
   margin-top: auto;
 
   padding-top: 1.5rem;
@@ -1000,27 +1186,20 @@ nav a:hover::after {
   font-weight: 600;
 
   text-decoration: none;
-
 }
 
 
 .project-link i {
-
   font-size: 0.7rem;
 
   transition:
     transform 0.3s ease;
-
 }
 
 
 .project-link:hover i {
-
-  transform: translate(
-    3px,
-    -3px
-  );
-
+  transform:
+    translate(3px, -3px);
 }
 
 
@@ -1029,7 +1208,6 @@ nav a:hover::after {
    ========================= */
 
 .innocence-card {
-
   display: grid;
 
   grid-template-columns:
@@ -1039,25 +1217,21 @@ nav a:hover::after {
 
   padding: 3rem;
 
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 
-  border-radius:
-    24px;
+  border-radius: 24px;
 
-  background:
-    var(--brown-dark);
+  background: var(--brown-dark);
 
   color: var(--ivory);
 
   position: relative;
 
   overflow: hidden;
-
 }
 
 
 .innocence-card::before {
-
   content: "";
 
   position: absolute;
@@ -1074,50 +1248,44 @@ nav a:hover::after {
 
   border:
     1px solid rgba(198, 168, 120, 0.3);
-
 }
 
 
 .innocence-card .eyebrow {
-
   color: var(--gold-light);
-
 }
 
 
 .innocence-content {
-
   position: relative;
 
   z-index: 1;
-
 }
 
 
 .innocence-content h3 {
+  font-family:
+    "Playfair Display",
+    serif;
 
-  font-family: "Playfair Display", serif;
-
-  font-size: clamp(2.3rem, 4vw, 3.5rem);
+  font-size:
+    clamp(2.3rem, 4vw, 3.5rem);
 
   font-weight: 500;
 
   margin-bottom: 1rem;
-
 }
 
 
 .innocence-content p:not(.eyebrow) {
-
-  color: rgba(247, 243, 236, 0.72);
+  color:
+    rgba(247, 243, 236, 0.72);
 
   max-width: 500px;
-
 }
 
 
 .innocence-words {
-
   display: flex;
 
   flex-wrap: wrap;
@@ -1131,12 +1299,10 @@ nav a:hover::after {
   position: relative;
 
   z-index: 1;
-
 }
 
 
 .innocence-words span {
-
   padding:
     0.7rem 1.1rem;
 
@@ -1147,54 +1313,118 @@ nav a:hover::after {
 
   color: var(--gold-light);
 
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
   font-size: 1.1rem;
-
 }
 
 
-/* Hobbies */
+/* =========================================================
+   HINDI PERSONAL QUOTE
+   ========================================================= */
+
+.personal-quote {
+  position: relative;
+
+  max-width: 800px;
+
+  margin:
+    0 auto 5rem;
+
+  padding:
+    3rem 2rem;
+
+  text-align: center;
+}
+
+
+.personal-quote p {
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
+
+  color: var(--brown);
+
+  font-size:
+    clamp(1.25rem, 2.5vw, 1.8rem);
+
+  line-height: 2;
+
+  font-weight: 400;
+}
+
+
+.quote-mark {
+  display: block;
+
+  color: var(--gold);
+
+  font-family:
+    "Playfair Display",
+    serif;
+
+  font-size: 4rem;
+
+  line-height: 0.6;
+
+  margin-bottom: 1rem;
+
+  opacity: 0.7;
+}
+
+
+.quote-line {
+  display: block;
+
+  width: 55px;
+
+  height: 1px;
+
+  background: var(--gold);
+
+  margin:
+    1.5rem auto 0;
+}
+
+
+/* =========================
+   HOBBIES
+   ========================= */
 
 .hobbies-wrapper {
-
   margin-top: 2rem;
-
 }
 
 
 .hobbies-heading {
-
   margin-bottom: 2rem;
-
 }
 
 
 .hobbies-heading h3 {
-
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
   font-size: 2rem;
 
   color: var(--brown-dark);
-
 }
 
 
 .hobbies-grid {
-
   display: grid;
 
   grid-template-columns:
     repeat(5, 1fr);
 
   gap: 1rem;
-
 }
 
 
 .hobby-card {
-
   min-height: 190px;
 
   padding: 1.5rem;
@@ -1211,54 +1441,49 @@ nav a:hover::after {
     transform 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
-
 }
 
 
 .hobby-card:hover {
-
-  transform: translateY(-5px);
+  transform:
+    translateY(-5px);
 
   background:
     rgba(255, 255, 255, 0.75);
 
-  box-shadow: var(--shadow);
-
+  box-shadow:
+    var(--shadow);
 }
 
 
 .hobby-card i {
-
   font-size: 1.3rem;
 
   color: var(--gold);
 
   margin-bottom: 1.2rem;
-
 }
 
 
 .hobby-card h4 {
-
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
   color: var(--brown-dark);
 
   font-size: 1.15rem;
 
   margin-bottom: 0.4rem;
-
 }
 
 
 .hobby-card p {
-
   color: var(--text-soft);
 
   font-size: 0.78rem;
 
   line-height: 1.5;
-
 }
 
 
@@ -1267,23 +1492,18 @@ nav a:hover::after {
    ========================= */
 
 .contact-container {
-
   text-align: center;
-
 }
 
 
 .contact-container .section-heading {
-
   margin-left: auto;
 
   margin-right: auto;
-
 }
 
 
 .email-link {
-
   display: inline-flex;
 
   align-items: center;
@@ -1292,9 +1512,12 @@ nav a:hover::after {
 
   color: var(--brown);
 
-  font-family: "Playfair Display", serif;
+  font-family:
+    "Playfair Display",
+    serif;
 
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size:
+    clamp(1.4rem, 3vw, 2rem);
 
   text-decoration: none;
 
@@ -1305,28 +1528,24 @@ nav a:hover::after {
 
   transition:
     color 0.3s ease;
-
 }
 
 
 .email-link:hover {
-
   color: var(--gold);
-
 }
 
 
 .email-link i {
-
   font-size: 0.8rem;
-
 }
 
 
-/* Social links */
+/* =========================
+   SOCIAL LINKS
+   ========================= */
 
 .social-links {
-
   display: flex;
 
   justify-content: center;
@@ -1334,12 +1553,10 @@ nav a:hover::after {
   gap: 1rem;
 
   margin-top: 2rem;
-
 }
 
 
 .social-links a {
-
   display: inline-flex;
 
   align-items: center;
@@ -1363,16 +1580,14 @@ nav a:hover::after {
   transition:
     background 0.3s ease,
     transform 0.3s ease;
-
 }
 
 
 .social-links a:hover {
-
   background: var(--ivory);
 
-  transform: translateY(-2px);
-
+  transform:
+    translateY(-2px);
 }
 
 
@@ -1381,18 +1596,17 @@ nav a:hover::after {
    ========================= */
 
 footer {
-
   background: var(--brown-dark);
 
-  color: rgba(247, 243, 236, 0.6);
+  color:
+    rgba(247, 243, 236, 0.6);
 
-  padding: 1.3rem 0;
-
+  padding:
+    1.3rem 0;
 }
 
 
 .footer-inner {
-
   display: flex;
 
   justify-content: space-between;
@@ -1400,347 +1614,289 @@ footer {
   align-items: center;
 
   font-size: 0.72rem;
-
 }
 
 
-/* =========================
-   MOBILE NAV OVERLAY
-   ========================= */
-
-.nav-overlay {
-
-  position: fixed;
-
-  inset: 0;
-
-  background:
-    rgba(51, 37, 30, 0.25);
-
-  backdrop-filter: blur(2px);
-
-  z-index: 900;
-
-  opacity: 0;
-
-  visibility: hidden;
-
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-
-}
-
-
-.nav-overlay.active {
-
-  opacity: 1;
-
-  visibility: visible;
-
-}
-
-
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 900px) {
 
   .hero-inner {
-
     grid-template-columns: 1fr;
 
     text-align: center;
 
     gap: 3rem;
-
   }
 
 
   .hero-content {
-
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
-
   }
 
 
   .hero-description {
-
     max-width: 650px;
-
   }
 
 
   .about-grid {
-
     grid-template-columns: 1fr;
 
     gap: 3rem;
-
   }
 
 
   .hobbies-grid {
-
     grid-template-columns:
       repeat(3, 1fr);
-
   }
-
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
 
   .section {
-
     padding: 5rem 0;
+  }
 
+
+  /*
+    Remove the desktop blur from the sticky header.
+
+    The mobile drawer is completely independent,
+    so there is no need for the header to blur behind it.
+  */
+
+  .header {
+    backdrop-filter: none;
+
+    -webkit-backdrop-filter: none;
+
+    background:
+      rgba(247, 243, 236, 0.97);
+  }
+
+
+  .desktop-nav {
+    display: none;
   }
 
 
   .menu-toggle {
+    display: flex;
 
-    display: block;
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
 
     position: relative;
 
-    z-index: 1100;
-
+    z-index: 6000;
   }
 
 
-  nav {
-
-    position: fixed;
-
-    top: 0;
-
-    right: -290px;
-
-    width: 270px;
-
-    height: 100vh;
-
-    padding:
-      6rem 2rem 2rem;
-
-    background: var(--ivory);
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 1.5rem;
-
-    z-index: 1050;
-
-    box-shadow:
-      -10px 0 40px rgba(51, 37, 30, 0.1);
-
-    transition:
-      right 0.35s ease;
-
-  }
-
-
-  nav.active {
-
-    right: 0;
-
-  }
-
-
-  nav a {
-
-    font-size: 0.95rem;
-
-  }
-
+  /* =========================
+     HERO
+     ========================= */
 
   .hero {
-
     min-height: auto;
-
   }
 
 
   .hero-inner {
-
     padding:
       5rem 0 6rem;
-
   }
 
 
   .logo-wrapper {
-
     width: 210px;
 
     height: 210px;
-
   }
 
 
   .logo-wrapper img {
-
     width: 185px;
 
     height: 185px;
-
   }
 
 
   .hero-content h1 {
-
     font-size: 3rem;
-
   }
 
 
   .hero-buttons {
-
     flex-direction: column;
 
     width: 100%;
 
     max-width: 250px;
-
   }
 
 
   .btn {
-
     width: 100%;
-
   }
 
+
+  /* =========================
+     PROJECTS
+     ========================= */
 
   .projects-grid {
-
     grid-template-columns: 1fr;
-
   }
 
 
-  .innocence-card {
+  /* =========================
+     BEYOND TECH
+     ========================= */
 
+  .innocence-card {
     grid-template-columns: 1fr;
 
     padding: 2rem;
-
   }
 
 
   .innocence-words {
-
     justify-content: flex-start;
-
   }
 
+
+  /* =========================
+     HOBBIES
+     ========================= */
 
   .hobbies-grid {
-
     grid-template-columns:
       repeat(2, 1fr);
-
   }
 
+
+  /* =========================
+     QUOTE
+     ========================= */
+
+  .personal-quote {
+    padding:
+      2.5rem 0;
+
+    margin-bottom: 3.5rem;
+  }
+
+
+  .personal-quote p {
+    font-size: 1.2rem;
+
+    line-height: 2;
+  }
+
+
+  /* =========================
+     SCROLL INDICATOR
+     ========================= */
 
   .scroll-indicator {
-
     display: none;
-
   }
-
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 480px) {
 
   .container {
-
     width: 88%;
-
   }
 
 
   .hero-content h1 {
-
     font-size: 2.5rem;
-
   }
 
 
   .section-heading h2 {
-
     font-size: 2.3rem;
-
   }
 
 
   .hobbies-grid {
-
     grid-template-columns: 1fr;
-
   }
 
 
   .hobby-card {
-
     min-height: auto;
-
   }
 
 
   .social-links {
-
     flex-direction: column;
 
     align-items: center;
-
   }
 
 
   .social-links a {
-
     width: 160px;
 
     justify-content: center;
-
   }
 
 
   .footer-inner {
-
     flex-direction: column;
 
     gap: 0.3rem;
-
   }
 
+
+  .mobile-nav {
+    width: 88vw;
+  }
+
+
+  .personal-quote p {
+    font-size: 1.08rem;
+  }
 }
 
 
-/* =========================
+/* =========================================================
    ACCESSIBILITY
-   ========================= */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-  * {
-
+  html {
     scroll-behavior: auto !important;
-
-    transition: none !important;
-
   }
 
+
+  * {
+    transition: none !important;
+  }
 }

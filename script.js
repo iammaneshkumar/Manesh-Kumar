@@ -8,56 +8,107 @@
    ELEMENTS
    ========================= */
 
-const menuToggle = document.getElementById("menu-toggle");
-const navbar = document.getElementById("navbar");
+const menuToggle =
+  document.getElementById("menu-toggle");
+
+const mobileNav =
+  document.getElementById("mobile-nav");
+
+const mobileClose =
+  document.getElementById("mobile-close");
+
+const navOverlay =
+  document.getElementById("nav-overlay");
+
+const mobileNavLinks =
+  document.querySelectorAll(".mobile-nav-links a");
 
 
 /* =========================
-   CREATE MOBILE OVERLAY
-   ========================= */
-
-const overlay = document.createElement("div");
-
-overlay.classList.add("nav-overlay");
-
-document.body.appendChild(overlay);
-
-
-/* =========================
-   OPEN / CLOSE MENU
+   OPEN MENU
    ========================= */
 
 function openMenu() {
 
-  navbar.classList.add("active");
-  overlay.classList.add("active");
+  mobileNav.classList.add("active");
+
+  navOverlay.classList.add("active");
 
   document.body.classList.add("menu-open");
 
-  menuToggle.setAttribute("aria-expanded", "true");
+  menuToggle.setAttribute(
+    "aria-expanded",
+    "true"
+  );
+
+  mobileNav.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  navOverlay.setAttribute(
+    "aria-hidden",
+    "false"
+  );
 
   menuToggle.innerHTML =
     '<i class="fas fa-xmark"></i>';
+
+  menuToggle.setAttribute(
+    "aria-label",
+    "Close navigation menu"
+  );
+
 }
 
+
+/* =========================
+   CLOSE MENU
+   ========================= */
 
 function closeMenu() {
 
-  navbar.classList.remove("active");
-  overlay.classList.remove("active");
+  mobileNav.classList.remove("active");
+
+  navOverlay.classList.remove("active");
 
   document.body.classList.remove("menu-open");
 
-  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  mobileNav.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  navOverlay.setAttribute(
+    "aria-hidden",
+    "true"
+  );
 
   menuToggle.innerHTML =
     '<i class="fas fa-bars"></i>';
+
+  menuToggle.setAttribute(
+    "aria-label",
+    "Open navigation menu"
+  );
+
 }
 
 
+/* =========================
+   TOGGLE MENU
+   ========================= */
+
 function toggleMenu() {
 
-  if (navbar.classList.contains("active")) {
+  if (
+    mobileNav.classList.contains("active")
+  ) {
 
     closeMenu();
 
@@ -81,10 +132,20 @@ menuToggle.addEventListener(
 
 
 /* =========================
-   CLOSE WHEN CLICKING OVERLAY
+   CLOSE BUTTON
    ========================= */
 
-overlay.addEventListener(
+mobileClose.addEventListener(
+  "click",
+  closeMenu
+);
+
+
+/* =========================
+   CLOSE ON OVERLAY
+   ========================= */
+
+navOverlay.addEventListener(
   "click",
   closeMenu
 );
@@ -94,20 +155,18 @@ overlay.addEventListener(
    CLOSE AFTER NAVIGATION
    ========================= */
 
-document
-  .querySelectorAll("#navbar a")
-  .forEach(link => {
+mobileNavLinks.forEach(link => {
 
-    link.addEventListener(
-      "click",
-      closeMenu
-    );
+  link.addEventListener(
+    "click",
+    closeMenu
+  );
 
-  });
+});
 
 
 /* =========================
-   ESC KEY CLOSE
+   ESCAPE KEY
    ========================= */
 
 document.addEventListener(
@@ -116,7 +175,7 @@ document.addEventListener(
 
     if (
       event.key === "Escape" &&
-      navbar.classList.contains("active")
+      mobileNav.classList.contains("active")
     ) {
 
       closeMenu();
@@ -164,12 +223,28 @@ document
           return;
         }
 
+        /*
+          Only prevent the browser's default jump.
+          The menu is closed separately.
+        */
+
         event.preventDefault();
 
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+        closeMenu();
+
+        /*
+          Small delay allows the drawer to
+          begin closing before scrolling.
+        */
+
+        setTimeout(() => {
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }, 50);
 
       }
     );
@@ -178,8 +253,7 @@ document
 
 
 /* =========================
-   CLOSE MOBILE MENU
-   WHEN RESIZING TO DESKTOP
+   CLOSE MENU ON DESKTOP
    ========================= */
 
 window.addEventListener(
@@ -188,12 +262,60 @@ window.addEventListener(
 
     if (
       window.innerWidth > 768 &&
-      navbar.classList.contains("active")
+      mobileNav.classList.contains("active")
     ) {
 
       closeMenu();
 
     }
 
+  }
+);
+
+
+/* =========================
+   PREVENT BACKGROUND SCROLL
+   ========================= */
+
+window.addEventListener(
+  "wheel",
+  event => {
+
+    if (
+      mobileNav.classList.contains("active") &&
+      !mobileNav.contains(event.target)
+    ) {
+
+      event.preventDefault();
+
+    }
+
+  },
+  {
+    passive: false
+  }
+);
+
+
+/* =========================
+   PREVENT BACKGROUND TOUCH
+   ========================= */
+
+document.addEventListener(
+  "touchmove",
+  event => {
+
+    if (
+      mobileNav.classList.contains("active") &&
+      !mobileNav.contains(event.target)
+    ) {
+
+      event.preventDefault();
+
+    }
+
+  },
+  {
+    passive: false
   }
 );
